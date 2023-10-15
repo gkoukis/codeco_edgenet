@@ -1,0 +1,187 @@
+version: '3.1'
+
+services:
+  nodelabeler:
+    container_name: nodelabeler
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/nodelabeler/Dockerfile
+    image: brecht.swn.uom.gr:5000/nodelabeler:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  selectivedeployment:
+    container_name: selectivedeployment
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/selectivedeployment/Dockerfile
+    image: brecht.swn.uom.gr:5000/selectivedeployment:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  tenant:
+    container_name: tenant
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/tenant/Dockerfile
+    image: brecht.swn.uom.gr:5000/tenant:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  tenantrequest:
+    container_name: tenantrequest
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/tenantrequest/Dockerfile
+    image: brecht.swn.uom.gr:5000/tenantrequest:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  rolerequest:
+    container_name: rolerequest
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/rolerequest/Dockerfile
+    image: brecht.swn.uom.gr:5000/rolerequest:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  nodecontribution:
+    container_name: nodecontribution
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/nodecontribution/Dockerfile
+    image: brecht.swn.uom.gr:5000/nodecontribution:v1.0.0
+    volumes:
+      - /etc/kubernetes/:/etc/kubernetes/
+      - ~/.kube/:/edgenet/.kube/
+      - ~/.ssh/:/edgenet/.ssh/
+  tenantresourcequota:
+    container_name: tenantresourcequota
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/tenantresourcequota/Dockerfile
+    image: brecht.swn.uom.gr:5000/tenantresourcequota:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  subnamespace:
+    container_name: subnamespace
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/subnamespace/Dockerfile
+    image: brecht.swn.uom.gr:5000/subnamespace:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  vpnpeer:
+    container_name: vpnpeer
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/vpnpeer/Dockerfile
+    image: brecht.swn.uom.gr:5000/vpnpeer:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+  notifier:
+    container_name: notifier
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/notifier/Dockerfile
+    image: brecht.swn.uom.gr:5000/notifier:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+      - ../assets/templates/:/edgenet/assets/templates/
+  clusterrolerequest:
+    container_name: clusterrolerequest
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/clusterrolerequest/Dockerfile
+    image: brecht.swn.uom.gr:5000/clusterrolerequest:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  sliceclaim:
+    container_name: sliceclaim
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/sliceclaim/Dockerfile
+    image: brecht.swn.uom.gr:5000/sliceclaim:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  slice:
+    container_name: slice
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/slice/Dockerfile
+    image: brecht.swn.uom.gr:5000/slice:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  fedlet:
+    container_name: fedlet
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/fedlet/Dockerfile
+    image: brecht.swn.uom.gr:5000/fedlet:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  cluster:
+    container_name: cluster
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/cluster/Dockerfile
+    image: brecht.swn.uom.gr:5000/cluster:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  managercache:
+    container_name: managercache
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/managercache/Dockerfile
+    image: brecht.swn.uom.gr:5000/managercache:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  selectivedeploymentanchor:
+    container_name: selectivedeploymentanchor
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/selectivedeploymentanchor/Dockerfile
+    image: brecht.swn.uom.gr:5000/selectivedeploymentanchor:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  fedscheduler:
+    container_name: fedscheduler
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/fedscheduler/Dockerfile
+    image: brecht.swn.uom.gr:5000/fedscheduler:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  clusterlabeler:
+    container_name: clusterlabeler
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/clusterlabeler/Dockerfile
+    image: brecht.swn.uom.gr:5000/clusterlabeler:v1.0.0
+    volumes:
+      - ~/.kube/:/edgenet/.kube/
+  admissioncontrol:
+    container_name: admissioncontrol
+    restart: always
+    build:
+      context: ../../
+      dockerfile: ./build/images/admissioncontrol/Dockerfile
+    image: brecht.swn.uom.gr:5000/admissioncontrol:v1.0.0

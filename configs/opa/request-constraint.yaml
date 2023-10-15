@@ -1,0 +1,12 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: RequestControl
+metadata:
+  name: edgenet-cluster
+spec:
+  match:
+    kinds:
+      - apiGroups: ["registration.edgenet.io"]
+        kinds: ["TenantRequest", "UserRequest"]
+  parameters:
+    values:
+      - false

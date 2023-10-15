@@ -1,0 +1,59 @@
+### Go ###
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# config files
+configs/**
+!configs/id_rsa.pub
+!configs/id_edgenet_2021.pub
+!configs/id_rsa_ehome.pub
+!configs/*_template.yaml
+!configs/user-files
+!configs/user-files/**
+!configs/nginx
+!configs/nginx/*_template.conf
+!configs/crd
+!configs/crd/**
+!configs/opa
+!configs/opa/**
+!configs/ca_sample.crt
+!configs/public.cfg
+!configs/public_ehome.cfg
+!configs/nodelabeler
+!configs/nodelabeler/**
+
+# assets
+assets/certs/**
+assets/kubeconfigs/**
+!assets/certs/*.md
+!assets/kubeconfigs/*.md
+
+# examples
+examples/selective-deployment/object/error-handling/**
+examples/selective-deployment/object/error-handling
+
+examples/*.txt
+examples/*/*.txt
+code-generator
+hack
+
+cmd/dnsrecords
+
+# Ignore OS X metadata files
+._*
+
+# IDEA
+.idea/
+
+.vscode
+vendor
